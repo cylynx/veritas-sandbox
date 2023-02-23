@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "commonjs",
+    "jsx": "react",
+    "outDir": "lib",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "preserveWatchOutput": true
+  },
+  "include": ["src"]
+}
