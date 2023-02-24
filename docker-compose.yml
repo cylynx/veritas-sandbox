@@ -6,17 +6,9 @@ services:
     container_name: jupyter
     ports:
       - 8888:8888
-    volumes:
-      - type: bind
-        source: ./data/veritas
-        target: /home/jovyan/veritas
 
   veritas-assessment-tool:
     image: veritastool/veritas-assessment-tool
     container_name: veritas-assessment-tool
     ports:
       - 8001:8001
-    volumes:
-      - type: bind
-        source: ./data/veritas-assessment-files
-        target: /opt/veritas/file
