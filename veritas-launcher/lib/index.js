@@ -140,37 +140,6 @@ const extension = {
             },
         ];
         (0, register_items_1.registerItems)(commands, model, veritasItems);
-        // commands.addCommand(CommandIDs.veritasDiganosisTool, {
-        //   label: "Veritas Diagnosis Tool",
-        //   icon: diagnosisIcon,
-        //   execute: (args: any) => {
-        //     commands.execute("docmanager:open", {
-        //       path: "test.ipynb",
-        //     });
-        //   },
-        // });
-        // commands.addCommand(CommandIDs.veritasAssessmentTool, {
-        //   label: "Veritas Assessment Tool",
-        //   icon: assessmentIcon,
-        //   execute: (args: any) => {
-        //     // To-do change this to get fix route instead of port
-        //     window.open(`http://${window.location.hostname}:8001`, "_blank");
-        //   },
-        // });
-        // // Getting started
-        // // CS Demo
-        // // CM Demo
-        // // Assessment tool
-        // model.add({
-        //   command: CommandIDs.veritasDiganosisTool,
-        //   category: VeritasCategory,
-        //   rank: 10,
-        // });
-        // model.add({
-        //   command: CommandIDs.veritasAssessmentTool,
-        //   category: VeritasCategory,
-        //   rank: 11,
-        // });
         return model;
     },
 };
