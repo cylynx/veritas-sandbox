@@ -30,6 +30,9 @@ RUN echo "conda activate ${conda_env}" >> "${HOME}/.bashrc"
 # Custom jupyter lab config
 COPY --chown=${NB_UID}:${NB_GID} settings/jupyter_lab_config.py /home/${NB_USER}/.jupyter/jupyter_lab_config.py
 
+# Notebook files
+COPY --chown=${NB_UID}:${NB_GID} data/veritas /home/${NB_USER}/veritas
+
 # Copy pre-built custom veritas loader extension
 COPY --chown=${NB_UID}:${NB_GID} veritas-launcher/build/veritas-launcher /opt/conda/share/jupyter/labextensions/veritas-launcher
 

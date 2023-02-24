@@ -5,8 +5,8 @@ c = get_config()  #noqa
 # Do not show default kernel
 c.KernelSpecManager.ensure_native_kernel = False
 
-# Default to the docker image NB_USER's work folder 
-c.ServerApp.root_dir = '/home/jovyan/work'
+# Default to the docker image NB_USER's veritas folder where we placed the materials
+c.ServerApp.root_dir = '/home/jovyan/veritas'
 
 #------------------------------------------------------------------------------
 # Application(SingletonConfigurable) configuration
