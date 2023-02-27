@@ -1,3 +1,3 @@
 #! /bin/bash
 
-docker build --rm -t jupyter/minimal-notebook .
+docker build --rm -t veritastool/veritas-sandbox .
