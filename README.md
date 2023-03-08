@@ -1,10 +1,10 @@
 ## Veritas Sandbox
 
-This is a sandbox image of the Veritas diagnosis and assessment tool, and is meant to help financial services assess their AI and Data Analytics models. It wraps the diagnosis and assessment tool into a convenient jupyter lab interface. It consists of three parts:
+This is a sandbox image of the Veritas diagnosis and assessment tool, and is meant to help financial services assess their AI and Data Analytics models. It wraps both tools into a convenient jupyter lab interface. The docker image consists of three parts:
 
-- Jupyter lab server as the main entry point
-- Pre-built Python image with all libraries required to run the example notebooks
-- Veritas assessment tool web application
+- Jupyter lab server with [Veritas Diagnosis Tool] installed
+- Example notebooks for [Veritas Diagnosis Tool]
+- [Veritas Assessment Tool] web application
 
 ## Installation
 
@@ -16,30 +16,21 @@ To persist user data, modify the docker-compose setup to use docker volumes:
 version: "3.9"
 
 services:
-  jupyter:
-    image: jupyter/minimal-notebook
-    container_name: jupyter
+  veritas-sandbox:
+    image: veritastool/veritas-sandbox
+    container_name: veritas-sandbox
     ports:
       - 8888:8888
+      - 8001:8001
     volumes:
       - type: bind
         source: ./data/veritas
         target: /home/jovyan/veritas
-
-  veritas-assessment-tool:
-    image: veritastool/veritas-assessment-tool
-    container_name: veritas-assessment-tool
-    ports:
-      - 8001:8001
-    volumes:
-      - type: bind
-        source: ./data/veritas-assessment-files
-        target: /opt/veritas/file
 ```
 
 ## Usage
 
-Jupyter lab should be available on port 8888 and the Veritas assessment tool on port 8001. The Jupyter homepage current features two demos - a credit scoring and customer marketing use case. Check out the examples, or create a fresh notebook to test with your own data. It also contains a convenient link to the Assessment tool.
+Jupyter lab should be available on port 8888 and the assessment tool on port 8001. The Jupyter homepage current features two demos - a credit scoring and customer marketing use case. Check out the examples, or create a fresh notebook to test with your own data. It also contains a convenient link to the Assessment tool.
 
 The default username (admin) and password (123456) can be used to access the assessment tool. Try generating a veritas report by uploading the json artifact produced by the python diagnosis tool.
 
@@ -58,6 +49,11 @@ To modify the landing page, edit the code in `./veritas-launcher/src` and build 
 
 `settings/overrides.json` - default value for extension settings. For example, it can be used to change the default theme. Currently, it is not used.
 
+`settings/supervisord.conf` and `settings/run_supervisord.sh` - supervisor settings to run both services in a single image. Modify the commands to start the Jupyter or assessment tool services with different default behaviours. For example to launch Jupyter with authentication, the following setting could be used: `command=/usr/local/bin/start.sh jupyter lab`.
+
 ## License
 
-Veritas Toolkit is licensed under the Apache License, Version 2.0 - see [`LICENSE`](./LICENSE) for more details.
+Veritas Sandbox is licensed under the Apache License, Version 2.0 - see [`LICENSE`](./LICENSE) for more details.
+
+[veritas diagnosis tool]: https://github.com/veritas-toolkit/diagnosis-tool
+[veritas assessment tool]: https://github.com/veritas-toolkit/assessment-tool

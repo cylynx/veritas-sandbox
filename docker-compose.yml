@@ -1,14 +1,9 @@
 version: "3.9"
 
 services:
-  jupyter:
+  veritas-sandbox:
     image: veritastool/veritas-sandbox
-    container_name: jupyter
+    container_name: veritas-sandbox
     ports:
       - 8888:8888
-
-  veritas-assessment-tool:
-    image: veritastool/veritas-assessment-tool
-    container_name: veritas-assessment-tool
-    ports:
       - 8001:8001

@@ -138,6 +138,8 @@ const extension: JupyterFrontEndPlugin<ILauncher> = {
       );
     }
 
+    const hostName = window.location.hostname;
+
     const veritasItems: GridItem[] = [
       {
         commandId: "veritas:credit-scoring",
@@ -171,7 +173,12 @@ const extension: JupyterFrontEndPlugin<ILauncher> = {
         rank: 13,
         execute: () => {
           // To-do change this to get fix route instead of port
-          window.open(`http://${window.location.hostname}:8001`, "_blank");
+          window.open(
+            hostName === "localhost" || hostName === "127.0.0.1"
+              ? `http://${hostName}:8001`
+              : `http://${hostName}/assessment`,
+            "_blank"
+          );
         },
       },
     ];

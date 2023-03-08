@@ -181,6 +181,7 @@ const extension = {
                 return commands.execute(CommandIDs.create, { ref });
             });
         }
+        const hostName = window.location.hostname;
         const veritasItems = [
             {
                 commandId: "veritas:credit-scoring",
@@ -214,7 +215,9 @@ const extension = {
                 rank: 13,
                 execute: () => {
                     // To-do change this to get fix route instead of port
-                    window.open(`http://${window.location.hostname}:8001`, "_blank");
+                    window.open(hostName === "localhost" || hostName === "127.0.0.1"
+                        ? `http://${hostName}:8001`
+                        : `http://${hostName}/assessment`, "_blank");
                 },
             },
         ];
@@ -458,4 +461,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.ae2450c5f0215991915d.js.map
+//# sourceMappingURL=lib_index_js.c63160471ce24c0aae79.js.map

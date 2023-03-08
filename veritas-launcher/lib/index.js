@@ -102,6 +102,7 @@ const extension = {
                 return commands.execute(CommandIDs.create, { ref });
             });
         }
+        const hostName = window.location.hostname;
         const veritasItems = [
             {
                 commandId: "veritas:credit-scoring",
@@ -135,7 +136,9 @@ const extension = {
                 rank: 13,
                 execute: () => {
                     // To-do change this to get fix route instead of port
-                    window.open(`http://${window.location.hostname}:8001`, "_blank");
+                    window.open(hostName === "localhost" || hostName === "127.0.0.1"
+                        ? `http://${hostName}:8001`
+                        : `http://${hostName}/assessment`, "_blank");
                 },
             },
         ];
