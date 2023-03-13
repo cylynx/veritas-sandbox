@@ -48,7 +48,7 @@ To modify the landing page, edit the code in `./veritas-launcher/src` and build 
 
 `settings/jupyter_lab_config.py` - Jupyter Lab settings. In the current setup, the default kernel is disabled and the default user directory modified to be consistent with the default user in the docker image.
 
-`settings/page_config.json` - configuration data to the application environment. The default launcher is disabled, since a custom `veritas-launcher` is being used.
+`settings/page_config.json` - configuration data to the application environment. The default launcher is disabled, since a custom `veritas-launcher` is being used. To change the default url path (http://localhost:8001) for the assessment tool, modify `veritasAssessmentUrl` and rebuild the image.
 
 `settings/overrides.json` - default value for extension settings. For example, it can be used to change the default theme. Currently, it is not used.
 
