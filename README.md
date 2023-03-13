@@ -10,7 +10,7 @@ This is a sandbox image of the Veritas diagnosis and assessment tool, and is mea
 
 Clone the repository, run `./build_image.sh` to build the custom jupyter lab docker image and `docker compose up` to start the service.
 
-To persist user data, modify the docker-compose setup to use docker volumes:
+To persist user data, modify the docker-compose setup to use docker volumes. The example below persists the notebook directory in the `./data/veritas` folder and the assessment sqlite db and artifacts in `./data/assessment`.
 
 ```
 version: "3.9"
@@ -26,6 +26,9 @@ services:
       - type: bind
         source: ./data/veritas
         target: /home/jovyan/veritas
+      - type: bind
+        source: ./data/assessment
+        target: /usr/local/bin/veritas/file
 ```
 
 ## Usage
