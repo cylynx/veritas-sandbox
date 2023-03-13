@@ -3,6 +3,7 @@ import {
   JupyterFrontEnd,
   JupyterFrontEndPlugin,
 } from "@jupyterlab/application";
+import { PageConfig } from "@jupyterlab/coreutils";
 import { ICommandPalette, MainAreaWidget } from "@jupyterlab/apputils";
 import { ILauncher } from "@jupyterlab/launcher";
 import { IMainMenu } from "@jupyterlab/mainmenu";
@@ -172,13 +173,7 @@ const extension: JupyterFrontEndPlugin<ILauncher> = {
         category: VeritasCategory,
         rank: 13,
         execute: () => {
-          // To-do change this to get fix route instead of port
-          window.open(
-            hostName === "localhost" || hostName === "127.0.0.1"
-              ? `http://${hostName}:8001`
-              : `http://${hostName}/assessment`,
-            "_blank"
-          );
+          window.open(PageConfig.getOption("veritasAssessmentUrl"));
         },
       },
     ];

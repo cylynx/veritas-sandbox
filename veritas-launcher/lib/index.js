@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const application_1 = require("@jupyterlab/application");
+const coreutils_1 = require("@jupyterlab/coreutils");
 const apputils_1 = require("@jupyterlab/apputils");
 const launcher_1 = require("@jupyterlab/launcher");
 const mainmenu_1 = require("@jupyterlab/mainmenu");
@@ -136,9 +137,7 @@ const extension = {
                 rank: 13,
                 execute: () => {
                     // To-do change this to get fix route instead of port
-                    window.open(hostName === "localhost" || hostName === "127.0.0.1"
-                        ? `http://${hostName}:8001`
-                        : `http://${hostName}/assessment`, "_blank");
+                    window.open(coreutils_1.PageConfig.getOption("veritasAssessmentUrl"));
                 },
             },
         ];
