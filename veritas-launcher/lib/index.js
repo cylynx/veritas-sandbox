@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const application_1 = require("@jupyterlab/application");
+const coreutils_1 = require("@jupyterlab/coreutils");
 const apputils_1 = require("@jupyterlab/apputils");
 const launcher_1 = require("@jupyterlab/launcher");
 const mainmenu_1 = require("@jupyterlab/mainmenu");
@@ -102,6 +103,7 @@ const extension = {
                 return commands.execute(CommandIDs.create, { ref });
             });
         }
+        const hostName = window.location.hostname;
         const veritasItems = [
             {
                 commandId: "veritas:credit-scoring",
@@ -135,7 +137,7 @@ const extension = {
                 rank: 13,
                 execute: () => {
                     // To-do change this to get fix route instead of port
-                    window.open(`http://${window.location.hostname}:8001`, "_blank");
+                    window.open(coreutils_1.PageConfig.getOption("veritasAssessmentUrl"));
                 },
             },
         ];

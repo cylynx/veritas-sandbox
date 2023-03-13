@@ -1,4 +1,5 @@
 {
+    "veritasAssessmentUrl": "http://localhost:8001",
     "disabledExtensions": {
         "@jupyterlab/launcher-extension": true
     }

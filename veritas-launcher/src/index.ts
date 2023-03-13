@@ -3,6 +3,7 @@ import {
   JupyterFrontEnd,
   JupyterFrontEndPlugin,
 } from "@jupyterlab/application";
+import { PageConfig } from "@jupyterlab/coreutils";
 import { ICommandPalette, MainAreaWidget } from "@jupyterlab/apputils";
 import { ILauncher } from "@jupyterlab/launcher";
 import { IMainMenu } from "@jupyterlab/mainmenu";
@@ -138,6 +139,8 @@ const extension: JupyterFrontEndPlugin<ILauncher> = {
       );
     }
 
+    const hostName = window.location.hostname;
+
     const veritasItems: GridItem[] = [
       {
         commandId: "veritas:credit-scoring",
@@ -170,8 +173,7 @@ const extension: JupyterFrontEndPlugin<ILauncher> = {
         category: VeritasCategory,
         rank: 13,
         execute: () => {
-          // To-do change this to get fix route instead of port
-          window.open(`http://${window.location.hostname}:8001`, "_blank");
+          window.open(PageConfig.getOption("veritasAssessmentUrl"));
         },
       },
     ];
