@@ -15,12 +15,14 @@ import { DockPanel, TabBar, Widget } from "@lumino/widgets";
 
 import { Launcher, LauncherModel, VeritasCategory } from "./launcher";
 import {
-  diagnosisIcon,
   assessmentIcon,
   toolKitIcon,
   creditScoringIcon,
   customerMarketingIcon,
-  infoIcon,
+  classificationIcon,
+  regressionIcon,
+  puwIcon,
+  newUseCaseIcon,
 } from "./icons";
 import { GridItem, registerItems } from "./register-items";
 import "../style/index.css";
@@ -167,11 +169,59 @@ const extension: JupyterFrontEndPlugin<ILauncher> = {
         },
       },
       {
+        commandId: "veritas:puw",
+        label: "Predictive Underwriting Demo",
+        icon: puwIcon,
+        category: VeritasCategory,
+        rank: 13,
+        execute: () => {
+          commands.execute("docmanager:open", {
+            path: "PUW_demo.ipynb",
+          });
+        },
+      },
+      {
+        commandId: "veritas:base-classification",
+        label: "Base Classification Demo",
+        icon: classificationIcon,
+        category: VeritasCategory,
+        rank: 14,
+        execute: () => {
+          commands.execute("docmanager:open", {
+            path: "BaseClassification_demo.ipynb",
+          });
+        },
+      },
+      {
+        commandId: "veritas:base-regression",
+        label: "Base Regression Demo",
+        icon: regressionIcon,
+        category: VeritasCategory,
+        rank: 15,
+        execute: () => {
+          commands.execute("docmanager:open", {
+            path: "BaseRegression_demo.ipynb",
+          });
+        },
+      },
+      {
+        commandId: "veritas:new-use-case-creation",
+        label: "Create New Use Case",
+        icon: newUseCaseIcon,
+        category: VeritasCategory,
+        rank: 16,
+        execute: () => {
+          commands.execute("docmanager:open", {
+            path: "NewUseCaseCreation_demo.ipynb",
+          });
+        },
+      },
+      {
         commandId: "veritas:assessment",
         label: "Veritas Assessment Tool",
         icon: assessmentIcon,
         category: VeritasCategory,
-        rank: 13,
+        rank: 17,
         execute: () => {
           window.open(PageConfig.getOption("veritasAssessmentUrl"));
         },
