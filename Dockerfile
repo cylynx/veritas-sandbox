@@ -3,10 +3,10 @@ WORKDIR /opt/veritas
 
 FROM jupyter/minimal-notebook:lab-3.6.1 AS jupyter
 
-# veritastoolkit requires python 3.9.5 or below
+# veritastoolkit 2.0 requires python 3.10.10 or below
 # name your environment and choose the python version
 ARG conda_env=veritas
-ARG py_ver=3.9.5
+ARG py_ver=3.10.10
 
 # Install java dependencies for assessment-tool
 USER root
