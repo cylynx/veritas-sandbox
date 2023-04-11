@@ -30,6 +30,10 @@ RUN "${CONDA_DIR}/envs/${conda_env}/bin/pip" install --quiet --no-cache-dir --re
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
+# Fix tqdm display on jupyter and docker - https://github.com/tqdm/tqdm/issues/1310
+RUN pip install ipywidgets
+RUN jupyter lab build
+
 # Remove the default jupyter kernel
 RUN jupyter kernelspec uninstall -y python3
 
