@@ -35,6 +35,7 @@ const extension = {
             if (widget.id === "jp-MainLogo") {
                 icons_1.toolKitIcon.element({
                     container: widget.node,
+                    // @ts-ignore
                     justify: "center",
                     margin: "2px 5px 2px 5px",
                     height: "auto",

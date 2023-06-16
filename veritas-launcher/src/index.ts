@@ -58,6 +58,7 @@ const extension: JupyterFrontEndPlugin<ILauncher> = {
       if (widget.id === "jp-MainLogo") {
         toolKitIcon.element({
           container: widget.node,
+          // @ts-ignore
           justify: "center",
           margin: "2px 5px 2px 5px",
           height: "auto",

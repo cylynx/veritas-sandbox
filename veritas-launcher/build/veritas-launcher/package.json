@@ -43,7 +43,7 @@
     "extension": true,
     "outputDir": "build/veritas-launcher",
     "_build": {
-      "load": "static/remoteEntry.df7445ed3ca357676bc2.js",
+      "load": "static/remoteEntry.53daba8e4e0e41598efc.js",
       "extension": "./extension",
       "style": "./style"
     }

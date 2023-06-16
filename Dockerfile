@@ -1,7 +1,7 @@
 FROM veritastool/veritas-assessment-tool AS assessment
 WORKDIR /opt/veritas
 
-FROM jupyter/minimal-notebook:lab-3.6.1 AS jupyter
+FROM jupyter/minimal-notebook:lab-3.6.3 AS jupyter
 
 # veritastoolkit 2.0 requires python 3.10.10 or below
 # name your environment and choose the python version
