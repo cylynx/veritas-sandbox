@@ -8,7 +8,33 @@ This is a sandbox image of the Veritas diagnosis and assessment tool, and is mea
 
 ## Installation
 
-Clone the repository, run `./build_image.sh` to build the custom jupyter lab docker image and `docker compose up` to start the service.
+The easiest way to get started is to use the docker image. The image is available on [Docker Hub](https://hub.docker.com/r/cylynx/veritas-sandbox).
+
+```
+docker pull cylynx/veritas-sandbox
+```
+
+Create a docker-compose file to start the service. The example below exposes the Jupyter lab server on port 8888 and the assessment tool on port 8001.
+
+```
+version: "3.9"
+
+services:
+  veritas-sandbox:
+    image: cylynx/veritas-sandbox
+    container_name: veritas-sandbox
+    ports:
+      - 8888:8888
+      - 8001:8001
+```
+
+Start the service in detached mode with `docker-compose up -d`.
+
+Jupyter lab should be available on port 8888 and the assessment tool on port 8001. The Jupyter homepage showcases a few demos including a credit scoring and customer marketing use case. Check out the examples, or create a fresh notebook to test with your own data. It also contains a convenient link to the Assessment tool.
+
+The default username (admin) and password (123456) can be used to access the assessment tool. Try generating a veritas report by uploading the json artifact produced by the python diagnosis tool.
+
+## Persist user data
 
 To persist user data, modify the docker-compose setup to use docker volumes. The example below persists the notebook directory in the `./data/veritas` folder and the assessment sqlite db and artifacts in `./data/assessment`.
 
@@ -31,13 +57,9 @@ services:
         target: /usr/local/bin/veritas/file
 ```
 
-## Usage
+## Develop
 
-Jupyter lab should be available on port 8888 and the assessment tool on port 8001. The Jupyter homepage current features two demos - a credit scoring and customer marketing use case. Check out the examples, or create a fresh notebook to test with your own data. It also contains a convenient link to the Assessment tool.
-
-The default username (admin) and password (123456) can be used to access the assessment tool. Try generating a veritas report by uploading the json artifact produced by the python diagnosis tool.
-
-## Development
+Clone the repository, run `./build_image.sh` to build the custom jupyter lab docker image and `docker compose up` to start the service.
 
 The custom Jupyter launcher landing page is added as a Jupyter labextension, with the default launcher disabled.
 To modify the landing page, edit the code in `./veritas-launcher/src` and build the labextension with `yarn build:prod`, before re-building the docker image.
