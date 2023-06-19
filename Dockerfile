@@ -1,12 +1,12 @@
 FROM veritastool/veritas-assessment-tool AS assessment
 WORKDIR /opt/veritas
 
-FROM jupyter/minimal-notebook:lab-3.6.1 AS jupyter
+FROM jupyter/minimal-notebook:lab-3.6.3 AS jupyter
 
-# veritastoolkit requires python 3.9.5 or below
+# veritastoolkit 2.0 requires python 3.10.10 or below
 # name your environment and choose the python version
 ARG conda_env=veritas
-ARG py_ver=3.9.5
+ARG py_ver=3.10.10
 
 # Install java dependencies for assessment-tool
 USER root
@@ -29,6 +29,10 @@ COPY --chown=${NB_UID}:${NB_GID} requirements.txt /tmp/
 RUN "${CONDA_DIR}/envs/${conda_env}/bin/pip" install --quiet --no-cache-dir --requirement /tmp/requirements.txt && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
+
+# Fix tqdm display on jupyter and docker - https://github.com/tqdm/tqdm/issues/1310
+RUN pip install ipywidgets
+RUN jupyter lab build
 
 # Remove the default jupyter kernel
 RUN jupyter kernelspec uninstall -y python3

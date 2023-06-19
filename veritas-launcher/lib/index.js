@@ -35,6 +35,7 @@ const extension = {
             if (widget.id === "jp-MainLogo") {
                 icons_1.toolKitIcon.element({
                     container: widget.node,
+                    // @ts-ignore
                     justify: "center",
                     margin: "2px 5px 2px 5px",
                     height: "auto",
@@ -130,13 +131,60 @@ const extension = {
                 },
             },
             {
+                commandId: "veritas:puw",
+                label: "Predictive Underwriting Demo",
+                icon: icons_1.puwIcon,
+                category: launcher_2.VeritasCategory,
+                rank: 13,
+                execute: () => {
+                    commands.execute("docmanager:open", {
+                        path: "PUW_demo.ipynb",
+                    });
+                },
+            },
+            {
+                commandId: "veritas:base-classification",
+                label: "Base Classification Demo",
+                icon: icons_1.classificationIcon,
+                category: launcher_2.VeritasCategory,
+                rank: 14,
+                execute: () => {
+                    commands.execute("docmanager:open", {
+                        path: "BaseClassification_demo.ipynb",
+                    });
+                },
+            },
+            {
+                commandId: "veritas:base-regression",
+                label: "Base Regression Demo",
+                icon: icons_1.regressionIcon,
+                category: launcher_2.VeritasCategory,
+                rank: 15,
+                execute: () => {
+                    commands.execute("docmanager:open", {
+                        path: "BaseRegression_demo.ipynb",
+                    });
+                },
+            },
+            {
+                commandId: "veritas:new-use-case-creation",
+                label: "Create New Use Case",
+                icon: icons_1.newUseCaseIcon,
+                category: launcher_2.VeritasCategory,
+                rank: 16,
+                execute: () => {
+                    commands.execute("docmanager:open", {
+                        path: "NewUseCaseCreation_demo.ipynb",
+                    });
+                },
+            },
+            {
                 commandId: "veritas:assessment",
                 label: "Veritas Assessment Tool",
                 icon: icons_1.assessmentIcon,
                 category: launcher_2.VeritasCategory,
-                rank: 13,
+                rank: 17,
                 execute: () => {
-                    // To-do change this to get fix route instead of port
                     window.open(coreutils_1.PageConfig.getOption("veritasAssessmentUrl"));
                 },
             },

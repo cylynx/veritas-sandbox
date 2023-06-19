@@ -5,3 +5,7 @@ export declare const customerMarketingIcon: LabIcon;
 export declare const creditScoringIcon: LabIcon;
 export declare const diagnosisIcon: LabIcon;
 export declare const assessmentIcon: LabIcon;
+export declare const regressionIcon: LabIcon;
+export declare const classificationIcon: LabIcon;
+export declare const puwIcon: LabIcon;
+export declare const newUseCaseIcon: LabIcon;

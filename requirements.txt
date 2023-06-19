@@ -1,2 +1,2 @@
-veritastool==1.1.0
+veritastool==2.0.2
 imblearn==0.0
